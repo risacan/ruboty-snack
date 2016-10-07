@@ -1,20 +1,30 @@
 require "ruboty"
+require "open-uri"
+require "json"
+require "pp"
 
 module Ruboty
   module Handlers
     class Snack < Base
-      OYATSU = %w(
-        green_apple apple pear tangerine banana
-        watermelon grapes strawberry melon cherries
-        peach pineapple tomato corn sweet_potato
-        bread cheese_wedge poultry_leg meat_on_bone
-        fried_shrimp egg hamburger fries hotdog
-        pizza spaghetti taco burrito ramen stew
-        sushi bento curry rice_ball rice rice_cracker
-        oden dango shaved_ice ice_cream icecream cake
-        birthday custard candy lollipop chocolate_bar
-        popcorn doughnut cookie chestnut mushroom
-      )
+      class << self
+        def emojis
+          @emojis ||= load_emojilib
+        end
+
+        def load_emojilib
+          emojilib_json = "https://raw.githubusercontent.com/muan/emojilib/master/emojis.json"
+          emojilib = JSON.parse(open(emojilib_json).read)
+          food_keywords = ["dessert", "fruit", "food", "sweet", "snack"]
+          drink_keywords = ["drink", "beverage"]
+          food = emojilib.each_with_object([]) do |(key, value), item|
+            item << value["char"] unless (value["keywords"] & food_keywords).empty?
+          end
+          drink = emojilib.each_with_object([]) do |(key, value), item|
+            item << value["char"] unless (value["keywords"] & drink_keywords).empty?
+          end
+          food - drink - ["🍾", "🍼", "🍽", "🎣"]
+        end
+      end
 
       on(
         /お腹すいた\z/i,
@@ -23,7 +33,11 @@ module Ruboty
       )
 
       def feed_snack(message)
-        message.reply("つ:#{OYATSU.sample}:")
+        message.reply("つ#{emojis.sample}")
+      end
+
+      def emojis
+        self.class.emojis
       end
     end
   end
