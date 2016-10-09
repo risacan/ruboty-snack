@@ -29,7 +29,7 @@ module Ruboty
       on(
         /お腹すいた\z/i,
         name: "feed_snack",
-        description: "おやつくれます"
+        description: "Give you some snack when you're hungry!🍭"
       )
 
       def feed_snack(message)
