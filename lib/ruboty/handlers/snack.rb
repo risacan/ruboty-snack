@@ -24,6 +24,8 @@ module Ruboty
             OYATSU.sample
           when /痛い/, /いたい/
             "💊"
+          when /いっぱい/, /ぱんぱん/, /パンパン/, /く/, /苦/
+            "☕"
           end
         message.reply("つ#{oyatsu}")
       end

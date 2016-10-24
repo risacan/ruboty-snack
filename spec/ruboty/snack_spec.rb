@@ -59,5 +59,22 @@ describe Ruboty::Handlers::Snack do
         end
       end
     end
+
+    describe "when you are full" do
+      %w(
+        お腹いっぱい！
+        お腹パンパン
+        お腹くるしい
+      ).each do |what_you_say|
+        it "replies to message \"#{what_you_say}\" and gives you a cup of coffee" do
+          expect(robot).to receive(:say).with(
+            hash_including(
+              body: "つ☕"
+            )
+          )
+          robot.receive(body: "#{robot.name} #{what_you_say}")
+        end
+      end
+    end
   end
 end
