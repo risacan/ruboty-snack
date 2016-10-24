@@ -11,13 +11,19 @@ module Ruboty
       )
 
       on(
-        /お腹すいた\z/i,
+        /お腹(?<status>.+)/,
         name: "feed_snack",
         description: "Gives you some snacks"
       )
 
       def feed_snack(message)
-        message.reply("つ#{OYATSU.sample}")
+        oyatsu =
+          case message[:status]
+          when /すい/, /空い/, /へっ/, /減/, /すき/, /空き/,
+               /ペコペコ/, /ぺこぺこ/
+            OYATSU.sample
+          end
+        message.reply("つ#{oyatsu}")
       end
     end
   end

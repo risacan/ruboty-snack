@@ -21,24 +21,26 @@ describe Ruboty::Handlers::Snack do
   end
 
   describe "#feed_snack" do
-    %w(
-      お腹すいた
-      お腹空いた
-      お腹空いたよ
-      お腹すいて
-      お腹空きすぎて早弁しちゃお
-      お腹空きすぎて死にそう
-      お腹ぺこぺこ
-      お腹ペコペコ
-      お腹減ったの
-    ).each do |what_you_say|
-      it "replies to message \"#{what_you_say}\" and gives you a snack" do
-        expect(robot).to receive(:say).with(
-          hash_including(
-            body: satisfy { |v| hand_with_snack.include?(v) }
+    describe "when you are hungry" do
+      %w(
+        お腹すいた
+        お腹空いた
+        お腹空いたよ
+        お腹すいて
+        お腹空きすぎて早弁しちゃお
+        お腹空きすぎて死にそう
+        お腹ぺこぺこ
+        お腹ペコペコ
+        お腹減ったの
+      ).each do |what_you_say|
+        it "replies to message \"#{what_you_say}\" and gives you a snack" do
+          expect(robot).to receive(:say).with(
+            hash_including(
+              body: satisfy { |v| hand_with_snack.include?(v) }
+            )
           )
-        )
-        robot.receive(body: "#{robot.name} #{what_you_say}")
+          robot.receive(body: "#{robot.name} #{what_you_say}")
+        end
       end
     end
   end
