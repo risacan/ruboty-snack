@@ -43,5 +43,21 @@ describe Ruboty::Handlers::Snack do
         end
       end
     end
+
+    describe "when your stomach hurts" do
+      %w(
+        お腹いたい
+        お腹痛い
+      ).each do |what_you_say|
+        it "replies to message \"#{what_you_say}\" and gives you a pill" do
+          expect(robot).to receive(:say).with(
+            hash_including(
+              body: "つ💊"
+            )
+          )
+          robot.receive(body: "#{robot.name} #{what_you_say}")
+        end
+      end
+    end
   end
 end
