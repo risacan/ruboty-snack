@@ -19,7 +19,7 @@ module Ruboty
       def feed_snack(message)
         oyatsu =
           case message[:status]
-          when /すい/, /空い/, /へっ/, /減/, /すき/, /空き/,
+          when /すい/, /空/, /へっ/, /減/, /すき/,
                /ペコペコ/, /ぺこぺこ/
             OYATSU.sample
           when /痛い/, /いたい/
