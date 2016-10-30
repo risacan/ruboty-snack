@@ -1,4 +1,5 @@
 require "ruboty"
+require "pp"
 
 module Ruboty
   module Handlers
@@ -35,11 +36,17 @@ module Ruboty
           when /いっぱい/, /ぱんぱん/, /パンパン/, /く/, /苦/
             "☕"
           end
-        message.reply("つ#{esa}")
+        message.reply("#{mention(message)}つ#{esa}")
       end
 
       def feed_snack(message)
-        message.reply("つ#{oyatsu}")
+        message.reply("#{mention(message)}つ#{oyatsu}")
+      end
+
+      private
+
+      def mention(message)
+        "@#{message.from}" if ENV["MENTION"] == "1"
       end
 
       private
