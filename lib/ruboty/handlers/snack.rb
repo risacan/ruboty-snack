@@ -17,7 +17,7 @@ module Ruboty
       )
 
       on(
-        /(harahe|はらへ|ハラへ|ﾊﾗﾍ)/,
+        /(harahe|はらへ|ハラヘ|ﾊﾗﾍ)/,
         name: "feed_snack",
         description: "Gives you some snacks"
       )
