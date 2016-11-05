@@ -12,22 +12,38 @@ module Ruboty
 
       on(
         /お腹(?<status>.+)/,
+        name: "feed",
+        description: "Gives you some snacks"
+      )
+
+      on(
+        /(harahe|はらへ|ハラへ|ﾊﾗﾍ)/,
         name: "feed_snack",
         description: "Gives you some snacks"
       )
 
-      def feed_snack(message)
+      def feed(message)
         oyatsu =
           case message[:status]
           when /すい/, /空/, /へっ/, /減/, /すき/,
                /ペコペコ/, /ぺこぺこ/
-            OYATSU.sample
+            oyatsu
           when /痛い/, /いたい/
             "💊"
           when /いっぱい/, /ぱんぱん/, /パンパン/, /く/, /苦/
             "☕"
           end
         message.reply("つ#{oyatsu}")
+      end
+
+      def feed_snack(message)
+        message.reply("つ#{oyatsu}")
+      end
+
+      private
+
+      def oyatsu
+        OYATSU.sample
       end
     end
   end
