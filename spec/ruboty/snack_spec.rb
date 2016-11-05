@@ -32,6 +32,9 @@ describe Ruboty::Handlers::Snack do
         お腹ぺこぺこ
         お腹ペコペコ
         お腹減ったの
+        はらへ
+        ハラへ
+        ﾊﾗﾍ
       ).each do |what_you_say|
         it "replies to message \"#{what_you_say}\" and gives you a snack" do
           expect(robot).to receive(:say).with(
