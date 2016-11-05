@@ -32,6 +32,12 @@ module Ruboty
         all: true
       )
 
+      on(
+        /(harahe|はらへ|ハラへ|ﾊﾗﾍ|ハラヘ)/,
+        name: "feed_snack",
+        description: "Gives you some snacks"
+      )
+
       def feed(message)
         esa =
           case message[:status]
