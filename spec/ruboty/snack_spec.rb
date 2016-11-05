@@ -34,6 +34,7 @@ describe Ruboty::Handlers::Snack do
         お腹減ったの
         はらへ
         ハラへ
+        ハラヘ
         ﾊﾗﾍ
       ).each do |what_you_say|
         it "replies to message \"#{what_you_say}\" and gives you a snack" do
