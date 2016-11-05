@@ -16,6 +16,13 @@ module Ruboty
         /お腹(?<status>.+)/,
         name: "feed",
         description: "Gives you some snacks"
+        all: true
+      )
+
+      on(
+        /お腹(?<status>.+)/,
+        name: "feed",
+        description: "Gives you some snacks"
       )
 
       on(
