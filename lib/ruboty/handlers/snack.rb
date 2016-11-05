@@ -23,7 +23,7 @@ module Ruboty
       )
 
       def feed(message)
-        oyatsu =
+        esa =
           case message[:status]
           when /すい/, /空/, /へっ/, /減/, /すき/,
                /ペコペコ/, /ぺこぺこ/
@@ -33,7 +33,7 @@ module Ruboty
           when /いっぱい/, /ぱんぱん/, /パンパン/, /く/, /苦/
             "☕"
           end
-        message.reply("つ#{oyatsu}")
+        message.reply("つ#{esa}")
       end
 
       def feed_snack(message)
