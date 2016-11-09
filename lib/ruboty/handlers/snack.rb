@@ -49,11 +49,11 @@ module Ruboty
           when /いっぱい/, /ぱんぱん/, /パンパン/, /く/, /苦/
             "☕"
           end
-        message.reply("#{mention(message)}つ#{esa}")
+        message.reply("#{mention(message)} つ#{esa}")
       end
 
       def feed_snack(message)
-        message.reply("#{mention(message)}つ#{oyatsu}")
+        message.reply("#{mention(message)} つ#{oyatsu}")
       end
 
       private
