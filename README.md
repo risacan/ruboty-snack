@@ -7,7 +7,7 @@ A Ruboty handler which delivers some food emojis.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'ruboty-snack'
+gem "ruboty-snack"
 ```
 
 And then execute:
