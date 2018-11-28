@@ -8,7 +8,7 @@ module Ruboty
         🍆 🌽 🍠 🍞 🧀 🍗 🍖 🍤 🍳 🍟 🌭 🍕 🍝 🌮 🌯
         🍜 🍲 🍥 🍣 🍱 🍛 🍙 🍚 🍘 🍢 🍡 🍧 🍨 🍦 🍰
         🎂 🍮 🍬 🍭 🍫 🍿 🍩 🍪 🍄 🥝 🥑 🥒 🥕 🌶 🥔
-        🥜 🥐 🥖 🥚 🥓 🥞 🍔 🥙 🥗 🥘
+        🥜 🥐 🥖 🥚 🥓 🥞 🍔 🥙 🥗 🥘 💩
       )
 
       on(
@@ -18,7 +18,7 @@ module Ruboty
       )
 
       on(
-        /(harahe|はらへ|ハラへ|ﾊﾗﾍ|ハラヘ)/,
+        /(harahe|はらへ|ハラへ|ﾊﾗﾍ|ハラヘ|ペコペコ)/,
         name: "feed_snack",
         description: "Gives you some snacks"
       )
